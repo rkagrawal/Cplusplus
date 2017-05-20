@@ -1,1 +1,2 @@
-C++ code examples
+C++ code examples for learning purposes
+
