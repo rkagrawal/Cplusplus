@@ -19,6 +19,16 @@ int main(int argc, char* argv[] ) {
     up2->print(cout);
     
     // The same logic should apply to shared_ptr as well.
+    
+    // create a shared ptr from unique_ptr ( move it )..
+    shared_ptr<emp> sp1 = move(up1);
+
+    // below line will cause segmentationf fault
+    //up1->print(cout); 
 
     
+    cout << "print from the shared ptr " << endl;
+    // both pointer and * work
+    sp1->print(cout);
+    (*sp1).print( cout );
 }
