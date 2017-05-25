@@ -22,6 +22,10 @@ class emp {
             cout << "called move ctr for " << fname << " at address " << this << endl;
         }
 
+        emp( const emp* const e  ): lname(e->lname), fname(e->fname), age(e->age) {
+            cout << "calling ctr with ptr " << fname << " at address " << this << endl;
+        }
+
         const string& getFirstName() const ;
         const string& getLastName() const ;
         int getAge() const { return age; }
