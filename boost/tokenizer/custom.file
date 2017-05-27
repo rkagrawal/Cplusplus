@@ -1,0 +1,4 @@
+rka|CME|*|ts|start|now|0
+rka|CME|*|ts|end|settlement|0
+rka|CME|C|ts|start|now|+2m
+rka|CME|C|ts|end|settlement|-20s
