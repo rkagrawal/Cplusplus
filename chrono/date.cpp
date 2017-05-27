@@ -10,29 +10,29 @@ int main( int argc, const char* argv[] ) {
      */
 
     //date::year_month_day ymd = 2017_y/may/25;
-    auto ymd = 2017_y/may/25;
+    auto ymd = 2017_y/date::may/25;
     cout << ymd << endl; 
     cout << "Next month " << ymd + months {1} << endl;
-    auto dp = sys_days{ymd};   // day_point has changed to sys_days
+    auto dp = date::sys_days{ymd};   // day_point has changed to date::sys_days
     cout << "dp is " << dp << endl;
     cout << "the sys days from epoch s " << dp.time_since_epoch().count() << endl;
 
     /*
-     *  days is a another duration as defined in chrono using the alias
+     *  date::days is a another duration as defined in chrono using the alias
      *  using days = chrono::duration<int, ratio_multiply< ratio<24>, chrono::hours::period>>;
      *
-     *  Below you will be surprised as today is sys_days , but prints a date.
-     *  The date library by Howard Hinnat has an overloaded << operator that takes sys_days
+     *  Below you will be surprised as today is date::sys_days( a timepoint alias) , but prints a date.
+     *  The date library by Howard Hinnat has an overloaded << operator that takes date::sys_days
      *  and prints year_month_day by converting the sys_dates to ymd.
      *  Look at date.h
      */
 
-    auto today = floor<days>( chrono::system_clock::now() ); // it is in UTC 
+    auto today = date::floor<date::days>( chrono::system_clock::now() ); // it is in UTC 
     cout << "Today ( is timepoint from sys_clock::now _)  " << today <<  endl;
 
     using mydays = chrono::duration<int, ratio_multiply< ratio<24> , chrono::hours::period>>;
 
-    auto mytoday = floor<chrono::seconds>( chrono::system_clock::now() );
+    auto mytoday = date::floor<chrono::seconds>( chrono::system_clock::now() );
     cout << "MyToday ( is timepoint from sys_clock::now)" << mytoday <<  endl;
 
     // mydays is duration...
@@ -41,12 +41,12 @@ int main( int argc, const char* argv[] ) {
 
     // sys_date ( called day_point before ) has the date and the first second of the day.
 
-    auto sd = sys_days{ 2017_y/apr/26 } ;
+    auto sd = date::sys_days{ 2017_y/date::apr/26 } ;
     cout << "sd is " << sd << endl;
-    if ( std::is_same<sys_days, decltype(sd)>::value ) {
-        cout << "sd is same as sys_days " << endl;
+    if ( std::is_same<date::sys_days, decltype(sd)>::value ) {
+        cout << "sd is same as date::sys_days " << endl;
     } else {
-        cout << "sd is NOT same as sys_days " << endl;
+        cout << "sd is NOT same as date::sys_days " << endl;
     }
 
     /* 
@@ -79,9 +79,9 @@ int main( int argc, const char* argv[] ) {
 
     // make time utility.
 
-    auto time_from_seconds = make_time( 2000s );
+    auto time_from_seconds = date::make_time( 2000s );
     cout << "time of day from time specified in seconds " << time_from_seconds << endl;
-    auto time_from_min = make_time( 24*60min + 5min); // 
+    auto time_from_min = date::make_time( 24*60min + 5min); // 
     cout << "time of day from time specified in minutes " << time_from_min << endl;
 }
 
