@@ -83,6 +83,7 @@ int main( int argc, char* argv[] ) {
     /*
         Accumulate takes the init as a copy ( T )
         The return value is also a T.. so the address of the object is different
+    */
 
     cout<<"3-----\n";
     auto y = accumulate( ++first, cend(s), i , youngest );
