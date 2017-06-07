@@ -4,6 +4,7 @@
 
 using namespace std;
 int main( int argc, char* argv[] ) {
+
    // the below will create a vector of 5 elements all pointing to the same set
 
    auto prtsetaddr = [] ( set<int>* p ) { cout << hex << p << dec << endl; };
@@ -32,5 +33,5 @@ int main( int argc, char* argv[] ) {
    cout << "Elements of Y are as below \n";
    for_each( begin(y), end(y), prtset );
 
-  
+   
 }
