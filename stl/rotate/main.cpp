@@ -8,7 +8,7 @@ int main(int argc, char* argv[] ) {
 
     vector<string> strvec = { "Rod Steward",  "Paula Abdul", "Michael Jackson", "Eric Clapton",
                               "Jay Z", "Michale Bolton", "Bruno Mars", "Paula Abdul", 
-                              "Rod Steward" };
+                              "Rod Steward", "George Michael", "Elton John",  };
 
     
     sort( begin(strvec), end(strvec) );
@@ -20,6 +20,18 @@ int main(int argc, char* argv[] ) {
 
     rotate( begin( strvec ), p1, end(strvec) );
     cout << "strvec after rotate\n";
+    copy( begin(strvec), end(strvec), ostream_iterator<string>( cout , "->" ) ); cout << "\n";
+
+    sort( begin(strvec), end(strvec) );
+
+    auto p3=find( begin(strvec), end(strvec), "Bruno Mars" );
+    auto p4=find( begin(strvec), end(strvec), "Elton John" );
+    
+    cout << "\noriginal strvec\n";
+    copy( begin(strvec), end(strvec), ostream_iterator<string>( cout , "->" ) ); cout << "\n";
+    cout<< "p3 " << *p3 << endl;
+    cout<< "p4 " << *p4 << endl;
+    rotate( p3, p4, p4+1 );
     copy( begin(strvec), end(strvec), ostream_iterator<string>( cout , "->" ) ); cout << "\n";
 
 }
