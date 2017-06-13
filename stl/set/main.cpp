@@ -33,5 +33,7 @@ int main( int argc, char* argv[] ) {
    cout << "Elements of Y are as below \n";
    for_each( begin(y), end(y), prtset );
 
-   
+   cout << "copy all elements of y to x " << endl;
+   copy( cbegin(y), cend(y), back_inserter(x)); 
+   for_each( begin(x), end(x), prtset );
 }
