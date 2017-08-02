@@ -1,0 +1,5 @@
+This gives the dfs traversal ( pre and post )
+as well as gets the connected components.
+
+for both inputs, you have to enter a start node for pre and post traveral
+the connected components does not require any start node.
