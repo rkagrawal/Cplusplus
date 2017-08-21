@@ -1,0 +1,8 @@
+So we have a merry go around with p carriages.
+there are n colors..
+how many different ways to color the p carriages.
+
+This is different from a train with p carriages.. .. There are n to the power p combinations to color
+the p carriages in the train.
+
+In Merry go around, if rotate ( one or more times ) we might find the same color

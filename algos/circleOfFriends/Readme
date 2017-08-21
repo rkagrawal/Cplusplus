@@ -1,0 +1,8 @@
+Using set representation to find circle of friends is not a good idea.
+See main_buggy.cpp for a bug with inp6.
+
+What we have to do is a graph based approach.
+see main_graph.cpp
+
+To see the problem with the main_buggy - which tries to collapse sets of friends,
+run main_buggy.out with inp6. There should be only 2 friend circles - but it shows 3.

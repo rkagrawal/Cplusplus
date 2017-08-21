@@ -1,0 +1,6 @@
+degree of arrays is the highest frequency of the elements in the array.
+we need to find out given an array , the smallest subarray that matches the 
+degree of the array.
+
+e.g.  A = [ 1,2,3,2,2,1 ]  -- the degree is 3 as 2 occurs 3 times.
+smallest sub array of A that has degree three is 2,3,2,2
