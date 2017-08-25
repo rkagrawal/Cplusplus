@@ -23,7 +23,7 @@ namespace std {
                 for(int i=0; i<x.length(); i++ ) {
                     h = ( ( h<<5 ) + h ) + x[i]; 
                 }
-                cout << "returning hash value of " << x << ":" << h << endl;
+                //cout << "returning hash value of " << x << ":" << h << endl;
                 return h;
             }
         };
@@ -88,6 +88,7 @@ int main( int argc, const char *argv[] ) {
                         cout<< p.first <<"->"<<p.second <<endl; } );
 
 
+    /* example of hash and equal functor */
     unordered_map<string, int, string_hash, string_equal  > M2;
 
     for ( auto s: V ) {
@@ -101,5 +102,13 @@ int main( int argc, const char *argv[] ) {
                         cout<< p.first <<"->"<<p.second <<endl; } );
 
 
+    /* keep track of the orignal string */
+    unordered_map<string, string, string_hash, string_equal> M3;
 
+    for ( auto s: V ) {
+        if ( M3.find( s ) == M3.end() ) M3.insert( make_pair(s, s) );
+    }
+
+    for_each( begin(M3), end(M3), []( const pair<string,string>& p ) { 
+                        cout<< p.first <<"->"<<p.second <<endl; } );
 }
