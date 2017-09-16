@@ -11,15 +11,15 @@ class emp {
     public:
         emp( string l, string f, int a ) : lname (std::move(l)), fname( std::move(f)), 
                                            age ( a ) {
-            //cout << "called ctr for " << fname << " at address " << this << endl;
+            cout << "called ctr for " << fname << " at address " << this << endl;
         }
 
         emp(const emp& e ): lname(e.lname), fname( e.fname), age(e.age)  {
-            //cout << "called copy ctr for " << fname << " at address " << this << endl;
+            cout << "called copy ctr for " << fname << " at address " << this << endl;
         }
 
         emp(emp&& e ): lname(move(e.lname)), fname( move(e.fname)), age(e.age)  {
-            //cout << "called move ctr for " << fname << " at address " << this << endl;
+            cout << "called move ctr for " << fname << " at address " << this << endl;
         }
 
         const string& getFirstName() const ;
