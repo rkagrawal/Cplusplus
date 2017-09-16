@@ -23,6 +23,10 @@ int main(int argc, char* argv[] ) {
     pair<mapiter, bool> p = empMap.emplace( make_pair( "Dinesh",
                                             make_unique<emp>( "Agrawal", "Dinesh", 46 )));
 
+
+    p = empMap.emplace( make_pair( "Rajesh", make_unique<emp>( "Agrawal", "Rajesh", 52 )));
+    p = empMap.emplace( make_pair( "Suresh", make_unique<emp>( "Agrawal", "Suresh", 50 )));
+
     // emplace in map can also take the variadic args like below
     // for it does not work as there is some problem with my understanding... 
     // 
@@ -32,8 +36,22 @@ int main(int argc, char* argv[] ) {
                                             forward_as_tuple( "Agrawal", "Dinesh", 46 ));
     */
 
-    if( p.second) {
-        mapiter& m = p.first;
-        m->second->print(cout);
-    }
+    cout << "Printing Map\n";
+    for( auto& p : empMap ) 
+        p.second->print(cout);
+         
+    auto iter = empMap.find( "Rajesh" ) ;
+    iter = empMap.erase( iter );    
+
+    cout << "\nPrinting after removing Rajesh\n";
+    for( auto& p : empMap ) 
+        p.second->print(cout);
+         
+    empMap.insert( iter, make_pair( "Rajesh", make_unique<emp>( "Agrawal", "Mahesh", 48 ) ) );
+
+    cout << "\nPrinting after inserting Mahesh\n";
+    for( auto& p : empMap ) 
+        p.second->print(cout);
+         
+    
 }
