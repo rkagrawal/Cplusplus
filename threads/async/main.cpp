@@ -52,6 +52,11 @@ int main(int argc, const char* argv[] ) {
 	auto f2 = async( mycompute, std::ref(Avec) , 2 );
 	auto f3 = async( mycompute, std::ref(Avec) , 3 );
 
+	f0.wait();
+	f2.wait();
+	f1.wait();
+	f3.wait();
+
 	cout << " Printing using cout address: "<< &Avec  << endl;
 	for( const auto& a : Avec ) cout << a ;
 
