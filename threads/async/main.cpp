@@ -19,7 +19,7 @@ class Compute {
 	public:
 	void operator() ( const vector<A>& vec, int pos ) {
 		cout << "The address of vec is " << &vec << endl;
-		vec[pos].y = pos*7;
+		vec[pos].y += pos*7;
 	}
 };
 
@@ -46,16 +46,14 @@ int main(int argc, const char* argv[] ) {
 
 	cout << endl;
 	Compute mycompute;
-	
-	auto f0 = async( mycompute, std::ref(Avec) , 0 );
-	auto f1 = async( mycompute, std::ref(Avec) , 1 );
-	auto f2 = async( mycompute, std::ref(Avec) , 2 );
-	auto f3 = async( mycompute, std::ref(Avec) , 3 );
 
-	f0.wait();
-	f2.wait();
-	f1.wait();
-	f3.wait();
+	vector<future<void>> futvec;
+
+	for ( int i=0; i<1000; i++ ) {
+		futvec.push_back( async( mycompute, std::ref(Avec), (i%4) ) );
+	}
+
+	for( int i=0; i<1000; i++ ) futvec[i].wait() ;
 
 	cout << " Printing using cout address: "<< &Avec  << endl;
 	for( const auto& a : Avec ) cout << a ;
