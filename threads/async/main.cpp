@@ -7,7 +7,7 @@ using namespace std;
 struct A  {
 	const int& x;
 	mutable int y;
-	A( const int& xx ) : x(xx) {};
+	A( const int& xx ) : x(xx) { y=0;};
 };
 
 ostream& operator<< ( ostream& o, const A& mya ) {
@@ -18,7 +18,7 @@ ostream& operator<< ( ostream& o, const A& mya ) {
 class Compute {
 	public:
 	void operator() ( const vector<A>& vec, int pos ) {
-		cout << "The address of vec is " << &vec << endl;
+		//cout << "The address of vec is " << &vec << endl;
 		vec[pos].y += pos*7;
 	}
 };
