@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
