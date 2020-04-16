@@ -1,6 +1,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 int main( int argc, char* argv[] ) {
@@ -19,7 +20,7 @@ int main( int argc, char* argv[] ) {
    // see the reference to a pointer as assignment is done in lambda
    for_each( begin(y), end(y), []( set<int>* &p ) { p = new set<int>(); });
    cout << "vector Y \n";
-   for_each( begin(y), end(y), prtsetaddr );
+   std::for_each( begin(y), end(y), prtsetaddr );
 
    // Insert some things in 1 element of X and 2 element of Y
 
