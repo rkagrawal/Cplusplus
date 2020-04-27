@@ -1,0 +1,5 @@
+
+Lambda expression by default cannot modify their capture variables by value - unless the lambda's call operator is made mutable
+By default Lambda expression is const ( call operator ) - it allows for modificatin of refence capture
+
+If the default capture is empty, then variable( within the scope ) cannot be accessed inside the lambda
