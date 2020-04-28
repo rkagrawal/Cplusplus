@@ -4,6 +4,8 @@
 #include<boost/algorithm/string/case_conv.hpp>
 #include<iterator>
 #include<algorithm>
+#include<sstream>
+
 
 
 struct icompare {
@@ -24,7 +26,10 @@ int main() {
     std::cout << std::endl;
 #endif
 
-    std::set<std::string, icompare > myset;
+	struct icompare mycomp;
+    //std::set<std::string, icompare > myset;
+    //std::set<std::string, mycomp > myset;
+    std::set<std::string> myset(mycomp);	
 
     myset.insert( "SysOpt" ); myset.insert("faKe" );
     std::copy( begin(myset), end(myset), std::ostream_iterator<std::string>( std::cout, " " ) );
@@ -41,5 +46,10 @@ int main() {
     if ( myset.find( "FAKE" ) != myset.end() ) {
          std::cout << "FAKE is present" << std::endl;
     }
+
+	std::stringstream sstr;
+	std::copy( begin(myset), end(myset), std::ostream_iterator<std::string>( sstr, " " ) );
+
+	std::cout << sstr.str() << std::endl;
 }
 
