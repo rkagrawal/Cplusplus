@@ -34,4 +34,9 @@ int main()
    std::cout << x << '\n';
    std::cout << y << '\n';
    std::cout << z << '\n';
+
+   auto t = std::make_tuple( 1,2.3,'C');
+
+   std::tuple_element<2, std::tuple<int, float, char>>::type t1 = 'x';
+   std::cout << t1 <<  std::endl;
 }
