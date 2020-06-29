@@ -30,6 +30,8 @@ int main(int argc, char* argv[] ) {
     // emplace in map can also take the variadic args like below
     // for it does not work as there is some problem with my understanding... 
     // 
+	//  piece wise construct cannot make shared ptr.. it can forward the tuple as args to the constructs.
+    // Hence the below does not work 
     /*
     pair<mapiter, bool> p = empMap.emplace( piecewise_construct,
                                             forward_as_tuple( "Dinesh" ),
