@@ -48,5 +48,11 @@ int main() {
 	iter = mymap.find( std::make_pair(8233456, 68));
 	std::cout << "The value at pair 8233456, 68 is " << iter->second << std::endl;
 	
+	std::unordered_map< std::pair<int,int>, long, decltype(hash_val) > mymapOld;
+	mymapOld.emplace( std::make_pair( 1233456, 67 ), -872 );
+
+	auto iter2 = mymapOld.find( std::make_pair( 1233456, 67 ) );
+	std::cout << "The value at pair  1233456, 67 in mymapOld is " << iter->second << std::endl;
+
 
 }
