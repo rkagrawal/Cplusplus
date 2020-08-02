@@ -3,8 +3,9 @@
 #include<set>
 #include<map>
 #include<math.h>
+#include<stdlib.h>
 
-void prime_factors_slow( int n, std::set<int>& v ) {
+void prime_factors_slow( long long n, std::set<int>& v ) {
 	for ( int i = 2; i<= n; i++ ) 
 		if ( i == n ) {
 			v.insert(n);
@@ -18,7 +19,7 @@ void prime_factors_slow( int n, std::set<int>& v ) {
 	
 }
 
-void prime_factors_better( int n, std::map<int,int>& m ) {
+void prime_factors_better( long long n, std::map<int,int>& m ) {
 	std::cout << "Sqrt of "<< n << " is " << sqrt( n ) << "\n";
 	bool anyfactor=false;
 	int till_here = floor(sqrt(n));
@@ -40,16 +41,19 @@ int main( int argc, char* argv[] ) {
 		exit(1);
 	}
 
-	int num1 = atoi( argv[1] );
+	long long num1 = atoll( argv[1] );
 
 	std::set<int> s;
 
 	s.insert(1); 
+	
+	/*
 	prime_factors_slow( num1, s );
 	
 	for( auto n:s) {
 		std::cout << n << std::endl;
 	}
+	*/
 
 	std::map<int,int> m;
 	prime_factors_better( num1, m );
