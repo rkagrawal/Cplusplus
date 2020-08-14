@@ -2,6 +2,7 @@
 #include<array>
 #include<vector>
 #include<cmath>
+#include<chrono>
 
 std::array< std::array<int, 20>, 20 > matrix = {
 	{ 	{8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
@@ -222,6 +223,9 @@ int main() {
 		std::cout << std::endl;
 	}
 
+
+	std::chrono::system_clock::time_point tp1 = std::chrono::system_clock::now();
+
 	int m = 0;
 	for (int i=0; i<20; ++i) {
 		for(int j=0;j<20;j++ ) {
@@ -234,6 +238,8 @@ int main() {
 		}
 	}
 
-	std::cout << "The max product is " << m << std::endl;
+	std::chrono::system_clock::time_point tp2 = std::chrono::system_clock::now();
+
+	std::cout << "The max product is " << m << " found in " << std::chrono::duration_cast<std::chrono::microseconds>(tp2-tp1).count() << " microseconds" << std::endl;
 
 }
