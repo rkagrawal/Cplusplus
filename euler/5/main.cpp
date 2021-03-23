@@ -34,7 +34,7 @@ int main(int argc, const char* argv[] ) {
 	int n = std::atoi(argv[1] );
 	std::map<int,int> m;
 
-#if 0
+#if 0 
 		updateWithPrimeFactors( n, m );
 
 		std::cout << "The prime factors of number " << n << " are below" << std::endl;

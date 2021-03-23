@@ -17,17 +17,20 @@ class emptest : public ::testing::Test {
 
         virtual void SetUp() {      
             e = new emp( "Agrawal", "Rajesh", 52 );
+			std::cout << "The address of e is " << hex << e << std::endl;
         }
 
-        virtual void TearDown() { delete e; }
+        virtual void TearDown() { // delete e; 
+		}
 };
 
 TEST_F( emptest, default ) {
     ASSERT_EQ( "Rajesh", e->getFirstName() );
     ASSERT_EQ( "Agrawal", e->getLastName() );
+}
+TEST_F( emptest, default2) {
     ASSERT_EQ( 52, e->getAge() );
 }
-
 
 int main(int argc, char* argv[] ) {
 	testing::InitGoogleTest(&argc, argv );

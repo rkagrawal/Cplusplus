@@ -1,3 +1,3 @@
-clang++ -std=c++14 -o main.out main.cpp
-clang++ -std=c++14 -o main2.out main2.cpp
-clang++ -std=c++14 -o example.out example.cpp
+#g++ -std=c++14 -o main.out main.cpp
+g++ -std=c++14 -o main2.out main2.cpp
+#g++ -std=c++14 -o example.out example.cpp

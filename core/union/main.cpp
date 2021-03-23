@@ -18,6 +18,7 @@ class A {
 
 class B {
     public:
+	B() : _x(0){}
     B( int x ) : _x(x){
         std::cout << "Inside B ctor" << std::endl;
     }
@@ -64,4 +65,14 @@ int main() {
 
     std::cout << "Constructed s " << std::endl;
 
+	union T {
+		int  i;
+		double d;
+		B myb;
+		T(){}
+		~T(){}
+	} myt;
+
+	std::cout << "The size of T is " << sizeof(T) << std::endl;
+	std::cout << "The size of B is " << sizeof(B) << std::endl;
 }

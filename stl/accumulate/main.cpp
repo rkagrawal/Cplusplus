@@ -20,7 +20,7 @@ int main() {
    int t = std::accumulate( m.begin(), m.end(), 0,
 						[]( int totQty, std::pair<int, TQ> p ) {
 							totQty += abs(p.second.getTotalQty());
-                            return totQty;
+							return totQty;
 						});
 
 	std::cout << "The total qty is " << t << std::endl;

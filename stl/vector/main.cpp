@@ -3,12 +3,16 @@
 // https://oopscenities.net/2012/02/24/c11-stdfunction-and-stdbind/
 //
 
+#include <functional>
 #include <iostream>
 #include <list>
 #include <string>
 #include <vector>
 #include <deque>
 #include <algorithm>
+#include <iterator>
+
+using namespace std;
 
 std::ostream& operator << ( std::ostream& o , const std::list<int>& l) {
     std::list<int>::const_iterator i = l.begin();

@@ -34,4 +34,7 @@ int main() {
 
     int (*fptr)( int ) = f6;
 
+	auto f7 = [](){};
+	f7();
+
 }

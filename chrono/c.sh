@@ -1,9 +1,12 @@
-INC=/Users/Rajesh/date-time
-OBJ=/Users/Rajesh/date-time
+#INC=/Users/Rajesh/date-time
+#OBJ=/Users/Rajesh/date-time
 
-clang++ -std=c++14 -g -o chrono.out chrono.cpp
+g++ -std=c++14 -g -o chrono.out chrono.cpp
+g++ -std=c++14 -g -o gmtime.out gmtime.cpp
 
-clang++ -std=c++14 -I$INC -g -o date.out date.cpp
+#g++ -std=c++14 -I$INC -g -o date.out date.cpp
+#g++ -std=c++14 -I$INC -g -o timezone.out timezone.cpp ${OBJ}/tz.o -lcurl
 
-clang++ -std=c++14 -I$INC -g -o timezone.out timezone.cpp ${OBJ}/tz.o -lcurl
 
+#g++ -std=c++17 -I$INC -g -o date.out date.cpp
+#g++ -std=c++17 -I$INC -g -o timezone.out timezone.cpp -lcurl

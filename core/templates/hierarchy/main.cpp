@@ -1,6 +1,26 @@
 #include <iostream>
 #include <string>
 
+
+class IdStr {
+
+	public:
+		IdStr( std::string idstr_ ): _idstr( std::move( idstr_ ) ) {}
+		const std::string& getIdStr() { return _idstr; }
+	private:
+		std::string  _idstr;
+	
+};
+
+class IdInt {
+	public:
+		IdInt( int idInt_ ) : _idInt( idInt_ ) {}
+		const int& getIdInt() { return _idInt; }
+	private:
+		int _idInt;
+};
+
+
 template< typename K >
 class C {
 	public:
@@ -28,6 +48,19 @@ class B{
 };
 
 
+
+//using strFPtr = std::string(IdStr::*fpStr)();
+//using intFPtr = int(IdInt::*fpInt)();
+
+typedef const std::string&(IdStr::*strFPtr)();
+typedef const int&(IdInt::*intFPtr)();
+
+template< typename T1 , typename T2  > 
+void printKey(  T1* a, strFPtr s, T2* b, intFPtr i ) {
+	std::cout << (a->*s)() << " " << (b->*i)() << std::endl;
+}
+
+
 int main() {
 	C<int>* myC = new C<int>( 10 );
 
@@ -46,4 +79,7 @@ int main() {
 	std::cout << "Outer most key: " << tripleH->getOuter()->getOuter()->getK() << std::endl;
 	std::cout << "Outer key: " << tripleH->getOuter()->getK() << std::endl;
 	std::cout << "Inner key: " << tripleH->getK() << std::endl;
+
+	printKey<IdStr, IdInt>( new IdStr( "R" ), &IdStr::getIdStr,  new IdInt(4), &IdInt::getIdInt );
+
 }

@@ -26,17 +26,17 @@ int main() {
     mya->f();
 
 
-/*
+
     B bobj(2);
     B *bobjptr = new B(3);
     B bobj2 = bobj;
 
     // below does not compile
-    //B bobj3 = *mya;
+    B bobj3 = *mya;
 
     // this compiles
     B bobj4 = *bobjptr;
- */
+
     // below causes slicing
     A aobj = *mya;
     aobj.f();

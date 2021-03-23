@@ -13,6 +13,7 @@ struct E {
         std::cout << "non def ctor " << std::endl;
     }
 
+
     E( const E& e ) {
         x = e.x; y=e.y; z=e.z;
         std::cout << "copy ctor " << std::endl;

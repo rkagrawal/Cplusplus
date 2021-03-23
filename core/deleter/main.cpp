@@ -26,5 +26,10 @@ class emp_deleter {
 int main() {
 	std::shared_ptr<emp> e1( new emp( "Rajesh", 55 ) ); 
 	std::shared_ptr<emp> e2( new emp( "Rajesh", 55 ) , emp_deleter() ); 
+
+	std::shared_ptr<emp> e3;
+	if ( !e3 ) {
+		std::cout << "e3 is null ptr" << std::endl;
+	}
 	
 }

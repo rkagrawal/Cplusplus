@@ -1,6 +1,7 @@
 #include<iostream>
 #include<map>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -10,11 +11,13 @@ struct info {
     info( int x ): i(x),count(0) {}
 };
 
-auto prt = [] (const info& inf ) { cout << inf.i << "|" << inf.count << endl; };
-auto prtmap = [] (const pair<int,info>& p ) { cout << p.first << "|" << p.second.count << endl; };
-
 int main(int argc, const char* argv[] ) {
     
+	auto prt = [] (const info& inf ) { cout << inf.i << "|" << inf.count << endl; };
+	//auto prtmap = [] (const pair<int,reference_wrapper<info>>& p ) { cout << p.first ; } << "|" << p.second.get().count << endl; };
+
+	std::pair<int, reference_wrapper<info>> xyz;
+
     vector<info> vec = { info(1),info(2),info(2),info(3),info(4),info(2),info(4),info(3),info(6)};
     cout << "Printing the vector... \n";
     for_each( begin(vec), end(vec), prt);
@@ -29,7 +32,7 @@ int main(int argc, const char* argv[] ) {
     }
 
     cout << "Printing the map... \n";
-    for_each( begin(m), end(m), prtmap );
+    //for_each( begin(m), end(m), prtmap );
     cout << endl;
     cout << "Printing the vector again... \n";
     for_each( begin(vec), end(vec), prt);
