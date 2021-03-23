@@ -1,0 +1,4 @@
+Write a function howSum that given a targetSum from an array of numbers ( can repeat the numers ) returns the first 
+set of numbers that adds up to targetSum
+
+targetSum(7, [5,3,4,7]) -> [7]

@@ -1,0 +1,11 @@
+ C++ has alignas to align memory.
+
+truct alignas(32) Vec3d { // alignas is available since C++11
+    double x, y, z;
+};
+auto pVectors = new Vec3d[1000];
+
+Vec3d holds double fields, and usually, its natural alignment should be 8 bytes. Now, with alignas keyword, we change this alignment to 32. This approach allows the compiler to fit the objects into SIMD registers like AVX (256-bit-wide registers).
+
+Aligning Memory in C++ 17 #
+Unfortunately, in C++11/14, you have no guarantee how the memory will be aligned after new[]. Often, you have to use routines like std::aligned_alloc() or MSVC’s _aligned_malloc() to be sure the alignment is preserved. That’s not ideal as it’s not working easily with smart pointers and also makes memory management visible in the code.
