@@ -21,18 +21,16 @@ void prime_factors_slow( long long n, std::set<int>& v ) {
 
 void prime_factors_better( long long n, std::map<int,int>& m ) {
 	std::cout << "Sqrt of "<< n << " is " << sqrt( n ) << "\n";
-	bool anyfactor=false;
 	int till_here = floor(sqrt(n));
 	for( int i=2; i<=till_here ; i++ ) {
 		while ( n % i == 0 ) {
 			m[i] += 1; 
 			n = n/i;
-
-			anyfactor=true;
+			
 		}
 	}
 
-	if( !anyfactor ) m[n] = 1;
+	m[n] = 1;
 }
 
 int main( int argc, char* argv[] ) {
