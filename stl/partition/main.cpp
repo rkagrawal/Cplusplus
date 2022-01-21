@@ -35,6 +35,10 @@ int main() {
 	std::copy( v.begin(), v.end(), std::ostream_iterator<int>( std::cout, " " )); std::cout << "\n";
 	
 
+	//v.erase( it1, v.end() );
+	v.erase( v.begin(), it1  );
+	std::copy( v.begin(), v.end(), std::ostream_iterator<int>( std::cout, " " )); std::cout << "\n";
+
 
 
 }
